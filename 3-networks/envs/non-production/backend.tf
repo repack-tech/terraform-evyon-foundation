@@ -16,7 +16,7 @@
 
 terraform {
   backend "gcs" {
-    bucket = "bkt-b-tfstate-d14c"
+    bucket = "bkt-b-tfstate-efb2"
     prefix = "terraform/networks/non-production"
   }
 }
