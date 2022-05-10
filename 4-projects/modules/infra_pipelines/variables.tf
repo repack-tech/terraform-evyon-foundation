@@ -90,12 +90,6 @@ variable "terraform_version_sha256sum" {
   default     = "4a52886e019b4fdad2439da5ff43388bbcc6cce9784fde32c53dcd0e28ca9957"
 }
 
-variable "terraform_validator_release" {
-  description = "Default terraform-validator release."
-  type        = string
-  default     = "v0.4.0"
-}
-
 variable "folders_to_grant_browser_role" {
   description = "List of folders to grant browser role to the cloud build service account. Used by terraform validator to able to load IAM policies."
   type        = list(string)
