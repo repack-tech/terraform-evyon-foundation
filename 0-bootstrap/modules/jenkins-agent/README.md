@@ -79,7 +79,7 @@ module "jenkins_bootstrap" {
 | terraform\_sa\_name | Fully-qualified name of the terraform service account. It must be supplied by the seed project | `string` | n/a | yes |
 | terraform\_service\_account | Email for terraform service account. It must be supplied by the seed project | `string` | n/a | yes |
 | terraform\_state\_bucket | Default state bucket, used in Cloud Build substitutions. It must be supplied by the seed project | `string` | n/a | yes |
-| terraform\_version | Default terraform version. | `string` | `"0.13.7"` | no |
+| terraform\_version | Default terraform version. | `string` | `"0.14.12"` | no |
 | terraform\_version\_sha256sum | sha256sum for default terraform version. | `string` | `"4a52886e019b4fdad2439da5ff43388bbcc6cce9784fde32c53dcd0e28ca9957"` | no |
 | tunnel0\_bgp\_peer\_address | BGP peer address for tunnel 0 | `string` | n/a | yes |
 | tunnel0\_bgp\_session\_range | BGP session range for tunnel 0 | `string` | n/a | yes |
@@ -105,8 +105,8 @@ module "jenkins_bootstrap" {
 ### Software
 
 - [gcloud sdk](https://cloud.google.com/sdk/install) >= 206.0.0
-- [Terraform](https://www.terraform.io/downloads.html) = 0.13.7
-    - The scripts in this codebase use Terraform v0.13.7. You should use the same version in the manual steps to avoid [Terraform State Snapshot Lock](https://github.com/hashicorp/terraform/issues/23290) errors caused by differences in terraform versions.
+- [Terraform](https://www.terraform.io/downloads.html) = 0.14.12
+    - The scripts in this codebase use Terraform v0.14.12. You should use the same version in the manual steps to avoid [Terraform State Snapshot Lock](https://github.com/hashicorp/terraform/issues/23290) errors caused by differences in terraform versions.
 
 ### Infrastructure
 

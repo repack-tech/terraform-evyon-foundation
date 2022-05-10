@@ -58,7 +58,7 @@ To run the commands described in this document, you need to have the following
 installed:
 
 - The [Google Cloud SDK](https://cloud.google.com/sdk/install) version 319.0.0 or later
-- [Terraform](https://www.terraform.io/downloads.html) version 0.13.7.
+- [Terraform](https://www.terraform.io/downloads.html) version 0.14.12.
 - An existing project which the user has access to be used by terraform-validator.
 
 **Note:** Make sure that you use the same version of Terraform throughout this series. Otherwise, you might experience Terraform state snapshot lock errors.
