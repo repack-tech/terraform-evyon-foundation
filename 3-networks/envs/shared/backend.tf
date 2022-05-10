@@ -16,7 +16,7 @@
 
 terraform {
   backend "gcs" {
-    bucket = "bkt-b-tfstate-efb2"
+    bucket = "bkt-b-tfstate-e395"
     prefix = "terraform/networks/envs/shared"
   }
 }
