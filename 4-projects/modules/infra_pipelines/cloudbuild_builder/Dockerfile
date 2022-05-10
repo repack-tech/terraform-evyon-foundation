@@ -15,7 +15,7 @@
 FROM gcr.io/cloud-builders/gcloud-slim
 
 # Use ARG so that values can be overriden by user/cloudbuild
-ARG TERRAFORM_VERSION=0.14.12
+ARG TERRAFORM_VERSION=1.1.9
 ARG TERRAFORM_VERSION_SHA256SUM=4a52886e019b4fdad2439da5ff43388bbcc6cce9784fde32c53dcd0e28ca9957
 ARG TERRAFORM_VALIDATOR_RELEASE=v0.4.0
 

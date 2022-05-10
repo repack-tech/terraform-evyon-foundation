@@ -224,7 +224,7 @@ variable "folder_id" {
 variable "terraform_version" {
   description = "Default terraform version."
   type        = string
-  default     = "0.14.12"
+  default     = "1.1.9"
 }
 
 variable "terraform_version_sha256sum" {
