@@ -20,7 +20,7 @@ module "shared" {
   default_region2                   = "us-west1"
   domain                            = var.domain
   access_context_manager_policy_id  = var.policy_id
-  target_name_server_addresses      = ["192.168.0.1", "192.168.0.2"]
+  target_name_server_addresses      = [{ ipv4_address : "192.168.0.1", forwarding_path : "" }, { ipv4_address : "192.168.0.2", forwarding_path : "" }]
   terraform_service_account         = var.terraform_service_account
   parent_folder                     = var.parent_folder
   enable_hub_and_spoke              = var.enable_hub_and_spoke

@@ -54,7 +54,7 @@ module "templates" {
 
 module "migs" {
   source            = "terraform-google-modules/vm/google//modules/mig"
-  version           = "6.0.0"
+  version           = "7.7.0"
   for_each          = toset(var.regions)
   project_id        = var.project_id
   region            = each.key
@@ -71,6 +71,7 @@ module "migs" {
       min_ready_sec                = 180
       minimal_action               = "RESTART"
       type                         = "OPPORTUNISTIC"
+      replacement_method           = "SUBSTITUTE"
     }
   ]
 }
