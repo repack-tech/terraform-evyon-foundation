@@ -80,7 +80,7 @@ module "jenkins_bootstrap" {
 | terraform\_service\_account | Email for terraform service account. It must be supplied by the seed project | `string` | n/a | yes |
 | terraform\_state\_bucket | Default state bucket, used in Cloud Build substitutions. It must be supplied by the seed project | `string` | n/a | yes |
 | terraform\_version | Default terraform version. | `string` | `"0.14.12"` | no |
-| terraform\_version\_sha256sum | sha256sum for default terraform version. | `string` | `"4a52886e019b4fdad2439da5ff43388bbcc6cce9784fde32c53dcd0e28ca9957"` | no |
+| terraform\_version\_sha256sum | sha256sum for default terraform version. | `string` | `"9d2d8a89f5cc8bc1c06cb6f34ce76ec4b99184b07eb776f8b39183b513d7798a"` | no |
 | tunnel0\_bgp\_peer\_address | BGP peer address for tunnel 0 | `string` | n/a | yes |
 | tunnel0\_bgp\_session\_range | BGP session range for tunnel 0 | `string` | n/a | yes |
 | tunnel1\_bgp\_peer\_address | BGP peer address for tunnel 1 | `string` | n/a | yes |

@@ -27,5 +27,5 @@ steps:
   args: ['version']
 substitutions:
   _TERRAFORM_VERSION: '1.1.9' # default value
-  _TERRAFORM_VERSION_SHA256SUM: '4a52886e019b4fdad2439da5ff43388bbcc6cce9784fde32c53dcd0e28ca9957' # default value
+  _TERRAFORM_VERSION_SHA256SUM: '9d2d8a89f5cc8bc1c06cb6f34ce76ec4b99184b07eb776f8b39183b513d7798a' # default value
 images: ['${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPOSITORY}/terraform']
