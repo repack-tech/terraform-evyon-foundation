@@ -24,57 +24,57 @@ output "base_shared_vpc_project_sa" {
   value       = module.base_shared_vpc_project.sa
 }
 
-output "floating_project" {
-  description = "Project sample floating project."
-  value       = module.floating_project.project_id
-}
-
-output "peering_project" {
-  description = "Project sample peering project id."
-  value       = module.peering_project.project_id
-}
-
-output "peering_network" {
-  description = "Peer network peering resource."
-  value       = module.peering.peer_network_peering
-}
-
-output "restricted_shared_vpc_project" {
-  description = "Project sample restricted project id."
-  value       = module.restricted_shared_vpc_project.project_id
-}
-
-output "restricted_shared_vpc_project_number" {
-  description = "Project sample restricted project."
-  value       = module.restricted_shared_vpc_project.project_number
-}
-
-output "restricted_enabled_apis" {
-  description = "Activated APIs."
-  value       = module.restricted_shared_vpc_project.enabled_apis
-}
-
-output "peering_complete" {
-  description = "Output to be used as a module dependency."
-  value       = module.peering.complete
-}
-
-output "env_secrets_project" {
-  description = "Project sample peering project id."
-  value       = module.env_secrets_project.project_id
-}
-
-output "keyring" {
-  description = "The name of the keyring."
-  value       = module.kms.keyring
-}
-
-output "keys" {
-  description = "List of created key names."
-  value       = keys(module.kms.keys)
-}
-
-output "bucket" {
-  description = "The created storage bucket"
-  value       = module.gcs_buckets.bucket
-}
+#output "floating_project" {
+#  description = "Project sample floating project."
+#  value       = module.floating_project.project_id
+#}
+#
+#output "peering_project" {
+#  description = "Project sample peering project id."
+#  value       = module.peering_project.project_id
+#}
+#
+#output "peering_network" {
+#  description = "Peer network peering resource."
+#  value       = module.peering.peer_network_peering
+#}
+#
+#output "restricted_shared_vpc_project" {
+#  description = "Project sample restricted project id."
+#  value       = module.restricted_shared_vpc_project.project_id
+#}
+#
+#output "restricted_shared_vpc_project_number" {
+#  description = "Project sample restricted project."
+#  value       = module.restricted_shared_vpc_project.project_number
+#}
+#
+#output "restricted_enabled_apis" {
+#  description = "Activated APIs."
+#  value       = module.restricted_shared_vpc_project.enabled_apis
+#}
+#
+#output "peering_complete" {
+#  description = "Output to be used as a module dependency."
+#  value       = module.peering.complete
+#}
+#
+#output "env_secrets_project" {
+#  description = "Project sample peering project id."
+#  value       = module.env_secrets_project.project_id
+#}
+#
+#output "keyring" {
+#  description = "The name of the keyring."
+#  value       = module.kms.keyring
+#}
+#
+#output "keys" {
+#  description = "List of created key names."
+#  value       = keys(module.kms.keys)
+#}
+#
+#output "bucket" {
+#  description = "The created storage bucket"
+#  value       = module.gcs_buckets.bucket
+#}

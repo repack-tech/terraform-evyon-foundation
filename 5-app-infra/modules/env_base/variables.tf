@@ -30,21 +30,6 @@ variable "region" {
   default     = "us-central1"
 }
 
-variable "num_instances" {
-  description = "Number of instances to create"
-  type        = number
-}
-
-variable "machine_type" {
-  description = "Machine type to create, e.g. n1-standard-1"
-  default     = "f1-micro"
-}
-
-variable "hostname" {
-  description = "Hostname of instances"
-  default     = "example-app"
-}
-
 variable "service_account" {
   default = null
   type = object({

@@ -43,7 +43,7 @@ data "google_project" "cloudbuild_project" {
 
 # Buckets for state and artifacts
 resource "random_id" "suffix" {
-  byte_length = 2
+  byte_length = 4
 }
 
 resource "google_storage_bucket" "pipeline_infra" {

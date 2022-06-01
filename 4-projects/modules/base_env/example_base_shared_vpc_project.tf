@@ -32,7 +32,12 @@ module "base_shared_vpc_project" {
   cloudbuild_sa               = var.app_infra_pipeline_cloudbuild_sa
   activate_apis = [
     "iam.googleapis.com",
-    "cloudresourcemanager.googleapis.com"
+    "cloudresourcemanager.googleapis.com",
+    "cloudbilling.googleapis.com",
+    "run.googleapis.com",
+  ]
+  folders_to_grant_browser_role = [
+    var.parent_folder != "" ? "folders/${var.parent_folder}" : "organizations/${var.org_id}"
   ]
 
   # Metadata

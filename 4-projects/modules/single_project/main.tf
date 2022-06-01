@@ -65,6 +65,14 @@ resource "google_folder_iam_member" "folder_browser" {
   member = "serviceAccount:${module.project.service_account_email}"
 }
 
+resource "google_folder_iam_member" "browser_to_folders" {
+  for_each = toset(var.folders_to_grant_browser_role)
+
+  folder = each.value
+  role   = "roles/browser"
+  member = "serviceAccount:${module.project.service_account_email}"
+}
+
 resource "google_folder_iam_member" "folder_network_viewer" {
   count  = var.enable_cloudbuild_deploy ? 1 : 0
   folder = var.folder_id
