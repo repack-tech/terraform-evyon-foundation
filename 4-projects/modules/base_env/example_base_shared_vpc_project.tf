@@ -35,6 +35,7 @@ module "base_shared_vpc_project" {
     "roles/iam.serviceAccountUser",
     "roles/iam.workloadIdentityPoolAdmin",
     "roles/iam.workloadIdentityUser",
+    "roles/resourcemanager.projectIamAdmin",
     "roles/run.admin",
     "roles/run.serviceAgent"
   ]
