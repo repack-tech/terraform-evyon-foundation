@@ -42,9 +42,10 @@ module "base_shared_vpc_project" {
   cloudbuild_sa            = var.app_infra_pipeline_cloudbuild_sa
   activate_apis            = [
     "artifactregistry.googleapis.com",
-    "iam.googleapis.com",
     "cloudresourcemanager.googleapis.com",
     "cloudbilling.googleapis.com",
+    "datastore.googleapis.com",
+    "iam.googleapis.com",
     "run.googleapis.com",
   ]
   folders_to_grant_browser_role = [
