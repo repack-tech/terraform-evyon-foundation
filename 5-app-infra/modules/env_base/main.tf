@@ -19,8 +19,8 @@ locals {
 }
 
 resource "google_artifact_registry_repository" "cloud-run-repo" {
-  provider = google-beta
-
+  provider      = google-beta
+  project       = data.google_project.env_project.project_id
   location      = var.region
   repository_id = "${var.project_suffix}-repository"
   description   = "Docker repository for Cloud Run"
@@ -31,6 +31,14 @@ resource "google_service_account" "cloud_run_service_account" {
   project      = data.google_project.env_project.project_id
   account_id   = "sa-example-app"
   display_name = "Example app service Account"
+}
+
+# Additional roles to Cloud Run SA
+resource "google_project_iam_member" "app_infra_pipeline_sa_roles" {
+  for_each = toset(var.cr_sa_roles)
+  project  = data.google_project.env_project.project_id
+  role     = each.value
+  member   = "serviceAccount:${google_service_account.cloud_run_service_account.email}"
 }
 
 # https://github.com/GoogleCloudPlatform/terraform-google-cloud-run

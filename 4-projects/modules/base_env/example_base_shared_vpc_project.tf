@@ -28,13 +28,20 @@ module "base_shared_vpc_project" {
   project_prefix              = var.project_prefix
   enable_hub_and_spoke        = var.enable_hub_and_spoke
   sa_roles                    = [
+    "roles/artifactregistry.writer",
+    "roles/containerregistry.ServiceAgent",
     "roles/editor",
+    "roles/iam.serviceAccountAdmin",
+    "roles/iam.serviceAccountUser",
     "roles/iam.workloadIdentityPoolAdmin",
-    "roles/iam.serviceAccountAdmin"
+    "roles/iam.workloadIdentityUser",
+    "roles/run.admin",
+    "roles/run.serviceAgent"
   ]
   enable_cloudbuild_deploy = true
   cloudbuild_sa            = var.app_infra_pipeline_cloudbuild_sa
   activate_apis            = [
+    "artifactregistry.googleapis.com",
     "iam.googleapis.com",
     "cloudresourcemanager.googleapis.com",
     "cloudbilling.googleapis.com",

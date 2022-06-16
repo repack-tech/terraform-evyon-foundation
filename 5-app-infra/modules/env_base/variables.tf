@@ -32,7 +32,7 @@ variable "region" {
 
 variable "service_account" {
   default = null
-  type = object({
+  type    = object({
     email  = string,
     scopes = set(string)
   })
@@ -52,5 +52,16 @@ variable "business_code" {
 
 variable "project_suffix" {
   description = "The name of the GCP project. Max 16 characters with 3 character business unit code."
+  type        = string
+}
+
+variable "cr_sa_roles" {
+  description = "Roles to grant to the Cloud Run Service account"
+  type        = list(any)
+  default     = []
+}
+
+variable "secrets_project_id" {
+  description = "Name of the project to access secrets from"
   type        = string
 }
