@@ -46,6 +46,9 @@ module "seed_bootstrap" {
   org_admins_org_iam_permissions = local.org_admins_org_iam_permissions
   project_prefix                 = var.project_prefix
 
+  # Remove after github.com/terraform-google-modules/terraform-google-bootstrap/issues/160
+  depends_on = [google_folder.bootstrap]
+
   project_labels = {
     environment       = "bootstrap"
     application_name  = "seed-bootstrap"
@@ -119,6 +122,9 @@ module "cloudbuild_bootstrap" {
   cloud_source_repos          = var.cloud_source_repos
   terraform_version           = "1.1.9"
   terraform_version_sha256sum = "9d2d8a89f5cc8bc1c06cb6f34ce76ec4b99184b07eb776f8b39183b513d7798a"
+
+  # Remove after github.com/terraform-google-modules/terraform-google-bootstrap/issues/160
+  depends_on = [module.seed_bootstrap]
 
   activate_apis = [
     "serviceusage.googleapis.com",

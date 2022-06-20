@@ -15,17 +15,16 @@
  */
 
 module "env_secrets_project" {
-  source                      = "../single_project"
-  impersonate_service_account = var.terraform_service_account
-  org_id                      = var.org_id
-  billing_account             = var.billing_account
-  folder_id                   = data.google_active_folder.env.name
-  environment                 = var.env
-  alert_spent_percents        = var.alert_spent_percents
-  alert_pubsub_topic          = var.alert_pubsub_topic
-  budget_amount               = var.budget_amount
-  project_suffix              = var.secrets_prj_suffix
-  project_prefix              = var.project_prefix
+  source               = "../single_project"
+  org_id               = var.org_id
+  billing_account      = var.billing_account
+  folder_id            = data.google_active_folder.env.name
+  environment          = var.env
+  alert_spent_percents = var.alert_spent_percents
+  alert_pubsub_topic   = var.alert_pubsub_topic
+  budget_amount        = var.budget_amount
+  project_suffix       = var.secrets_prj_suffix
+  project_prefix       = var.project_prefix
 
   activate_apis = ["logging.googleapis.com", "secretmanager.googleapis.com", "cloudkms.googleapis.com"]
 
@@ -60,7 +59,7 @@ module "kms" {
 resource "random_string" "bucket_name" {
   length  = 5
   upper   = false
-  number  = true
+  numeric = true
   lower   = true
   special = false
 }

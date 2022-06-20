@@ -16,19 +16,30 @@
 
 #output "instances_self_links" {
 #  description = "List of self-links for compute instances"
-#  value       = module.base_cloud_run_container.instances_self_links
+#  value       = module.base_shared_gce_instance.instances_self_links
 #}
 #
 #output "instances_names" {
 #  description = "List of names for compute instances"
-#  value       = [for u in module.base_cloud_run_container.instances_details : u.name]
+#  value       = [for u in module.base_shared_gce_instance.instances_details : u.name]
 #}
 #
 #output "instances_zones" {
 #  description = "List of zone for compute instances"
-#  value       = [for u in module.base_cloud_run_container.instances_details : u.zone]
+#  value       = [for u in module.base_shared_gce_instance.instances_details : u.zone]
 #}
-
+#
+#output "instances_details" {
+#  description = "List of details for compute instances"
+#  value       = module.base_shared_gce_instance.instances_details
+#  sensitive   = true
+#}
+#
+#output "available_zones" {
+#  description = "List of available zones in region"
+#  value       = module.base_shared_gce_instance.available_zones
+#}
+#
 #output "url" {
 #  description = "Cloud Run's URL"
 #  value       = module.base_cloud_run_container.url

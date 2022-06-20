@@ -15,17 +15,16 @@
  */
 
 module "app_infra_cloudbuild_project" {
-  source                      = "../../modules/single_project"
-  impersonate_service_account = var.terraform_service_account
-  org_id                      = var.org_id
-  billing_account             = var.billing_account
-  folder_id                   = data.google_active_folder.common.name
-  environment                 = "common"
-  alert_spent_percents        = var.alert_spent_percents
-  alert_pubsub_topic          = var.alert_pubsub_topic
-  budget_amount               = var.budget_amount
-  project_prefix              = var.project_prefix
-  activate_apis               = [
+  source               = "../../modules/single_project"
+  org_id               = var.org_id
+  billing_account      = var.billing_account
+  folder_id            = data.google_active_folder.common.name
+  environment          = "common"
+  alert_spent_percents = var.alert_spent_percents
+  alert_pubsub_topic   = var.alert_pubsub_topic
+  budget_amount        = var.budget_amount
+  project_prefix       = var.project_prefix
+  activate_apis = [
     "artifactregistry.googleapis.com",
     "cloudbuild.googleapis.com",
     "cloudkms.googleapis.com",
@@ -36,7 +35,6 @@ module "app_infra_cloudbuild_project" {
     "sourcerepo.googleapis.com",
     "sts.googleapis.com", // Security Token Service. Required for Workload Identity Federation
   ]
-
   # Metadata
   project_suffix    = "infra-pipeline"
   application_name  = "app-infra-pipelines"
