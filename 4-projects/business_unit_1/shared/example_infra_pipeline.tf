@@ -25,12 +25,15 @@ module "app_infra_cloudbuild_project" {
   budget_amount        = var.budget_amount
   project_prefix       = var.project_prefix
   activate_apis = [
-    "cloudbuild.googleapis.com",
-    "sourcerepo.googleapis.com",
-    "cloudkms.googleapis.com",
-    "iam.googleapis.com",
     "artifactregistry.googleapis.com",
-    "cloudresourcemanager.googleapis.com"
+    "cloudbuild.googleapis.com",
+    "cloudkms.googleapis.com",
+    "cloudresourcemanager.googleapis.com",
+    "iam.googleapis.com",
+    "iamcredentials.googleapis.com",
+    "run.googleapis.com",
+    "sourcerepo.googleapis.com",
+    "sts.googleapis.com", // Security Token Service. Required for Workload Identity Federation
   ]
   # Metadata
   project_suffix    = "infra-pipeline"
@@ -42,13 +45,16 @@ module "app_infra_cloudbuild_project" {
 }
 
 module "infra_pipelines" {
-  source                      = "../../modules/infra_pipelines"
-  impersonate_service_account = var.terraform_service_account
-  cloudbuild_project_id       = module.app_infra_cloudbuild_project.project_id
-  project_prefix              = var.project_prefix
-  billing_account             = var.billing_account
-  default_region              = var.default_region
-  bucket_region               = var.default_region
-  app_infra_repos             = ["bu1-example-app"]
+  source                        = "../../modules/infra_pipelines"
+  impersonate_service_account   = var.terraform_service_account
+  cloudbuild_project_id         = module.app_infra_cloudbuild_project.project_id
+  project_prefix                = var.project_prefix
+  billing_account               = var.billing_account
+  default_region                = var.default_region
+  bucket_region                 = var.default_region
+  app_infra_repos               = ["bycd-db-mgmt-app"]
+  folders_to_grant_browser_role = [
+    var.parent_folder != "" ? "folders/${var.parent_folder}" : "organizations/${var.org_id}"
+  ]
 }
 

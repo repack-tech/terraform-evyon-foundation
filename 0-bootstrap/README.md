@@ -58,7 +58,7 @@ To run the commands described in this document, you need to have the following
 installed:
 
 - The [Google Cloud SDK](https://cloud.google.com/sdk/install) version 319.0.0 or later
-- [Terraform](https://www.terraform.io/downloads.html) version 0.13.7.
+- [Terraform](https://www.terraform.io/downloads.html) version 0.14.12.
 - An existing project which the user has access to be used by terraform-validator.
 
 **Note:** Make sure that you use the same version of Terraform throughout this series. Otherwise, you might experience Terraform state snapshot lock errors.
@@ -111,7 +111,7 @@ your current Jenkins manager (master) environment.
 1. To run terraform-validator steps please follow the [instructions](https://github.com/GoogleCloudPlatform/terraform-validator/blob/main/docs/install.md) in the **Install Terraform Validator** section and install version `v0.4.0`. You will also need to rename the binary from `terraform-validator-<your-platform>` to `terraform-validator` and the terraform-validator binary must be in your PATH.
     1. Run `terraform plan -input=false -out bootstrap.tfplan`
     1. Run `terraform show -json bootstrap.tfplan > bootstrap.json`
-    1. Run `terraform-validator validate bootstrap.json --policy-path="../policy-library" --project <A-VALID-PROJECT-ID>` and check for violations (`<A-VALID-PROJECT-ID>` must be an existing project you have access to, this is necessary because Terraform-validator needs to link resources to a valid Google Cloud Platform project).
+    1. Run `gcloud beta terraform vet bootstrap.json --policy-library="../policy-library" --project <A-VALID-PROJECT-ID>` and check for violations (`<A-VALID-PROJECT-ID>` must be an existing project you have access to, this is necessary because Terraform-validator needs to link resources to a valid Google Cloud Platform project).
 1. Run `terraform apply`.
 1. Run `terraform output terraform_service_account` to get the email address of the admin. You need this address in a later procedure.
 1. Run `terraform output gcs_bucket_tfstate` to get your Google Cloud bucket name from Terraform's state.

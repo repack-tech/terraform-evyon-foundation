@@ -26,12 +26,31 @@ module "base_shared_vpc_project" {
   budget_amount            = var.budget_amount
   project_prefix           = var.project_prefix
   enable_hub_and_spoke     = var.enable_hub_and_spoke
-  sa_roles                 = ["roles/editor"]
+  sa_roles                 = [
+    "roles/artifactregistry.writer",
+    "roles/containerregistry.ServiceAgent",
+    "roles/editor",
+    "roles/iam.serviceAccountAdmin",
+    "roles/iam.serviceAccountUser",
+    "roles/iam.workloadIdentityPoolAdmin",
+    "roles/iam.workloadIdentityUser",
+    "roles/resourcemanager.projectIamAdmin",
+    "roles/run.admin",
+    "roles/run.serviceAgent"
+  ]
   enable_cloudbuild_deploy = true
   cloudbuild_sa            = var.app_infra_pipeline_cloudbuild_sa
   activate_apis = [
+    "artifactregistry.googleapis.com",
+    "cloudresourcemanager.googleapis.com",
+    "cloudbilling.googleapis.com",
+    "datastore.googleapis.com",
     "iam.googleapis.com",
-    "cloudresourcemanager.googleapis.com"
+    "run.googleapis.com",
+    "run.googleapis.com",
+  ]
+  folders_to_grant_browser_role = [
+    var.parent_folder != "" ? "folders/${var.parent_folder}" : "organizations/${var.org_id}"
   ]
 
   # Metadata

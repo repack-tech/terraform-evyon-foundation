@@ -30,7 +30,8 @@ module "project" {
   folder_id         = var.folder_id
 
   svpc_host_project_id = var.vpc_type == "" ? "" : data.google_compute_network.shared_vpc[0].project
-  shared_vpc_subnets   = var.vpc_type == "" ? [] : data.google_compute_network.shared_vpc[0].subnetworks_self_links # Optional: To enable subnetting, replace to "module.networking_project.subnetwork_self_link"
+  shared_vpc_subnets   = var.vpc_type == "" ? [] : data.google_compute_network.shared_vpc[0].subnetworks_self_links
+  # Optional: To enable subnetting, replace to "module.networking_project.subnetwork_self_link"
 
   vpc_service_control_attach_enabled = var.vpc_service_control_attach_enabled
   vpc_service_control_perimeter_name = var.vpc_service_control_perimeter_name
@@ -65,6 +66,14 @@ resource "google_folder_iam_member" "folder_browser" {
   member = "serviceAccount:${module.project.service_account_email}"
 }
 
+resource "google_folder_iam_member" "browser_to_folders" {
+  for_each = toset(var.folders_to_grant_browser_role)
+
+  folder = each.value
+  role   = "roles/browser"
+  member = "serviceAccount:${module.project.service_account_email}"
+}
+
 resource "google_folder_iam_member" "folder_network_viewer" {
   count  = var.enable_cloudbuild_deploy ? 1 : 0
   folder = var.folder_id
@@ -78,4 +87,17 @@ resource "google_service_account_iam_member" "cloudbuild_terraform_sa_impersonat
   service_account_id = module.project.service_account_name
   role               = "roles/iam.serviceAccountTokenCreator"
   member             = "serviceAccount:${var.cloudbuild_sa}"
+}
+
+module "gh_oidc" {
+  source      = "terraform-google-modules/github-actions-runners/google//modules/gh-oidc"
+  project_id  = module.project.project_id
+  pool_id     = "${var.project_prefix}-${var.business_code}-${local.env_code}-${var.project_suffix}"
+  provider_id = "${var.project_suffix}-gh-provider"
+  sa_mapping  = {
+    ( module.project.service_account_email ) = {
+      sa_name   = module.project.service_account_name
+      attribute = "attribute.repository/user/repo"
+    }
+  }
 }

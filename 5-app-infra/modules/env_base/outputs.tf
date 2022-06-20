@@ -14,20 +14,25 @@
  * limitations under the License.
  */
 
-output "instances_self_links" {
-  description = "List of self-links for compute instances"
-  value       = module.compute_instance.instances_self_links
-}
+#output "instances_self_links" {
+#  description = "List of self-links for compute instances"
+#  value       = module.compute_instance.instances_self_links
+#}
+#
+#output "instances_details" {
+#  description = "List of details for compute instances"
+#  value       = module.compute_instance.instances_details
+#}
 
-output "instances_details" {
-  description = "List of details for compute instances"
-  value       = module.compute_instance.instances_details
-}
-
-output "available_zones" {
-  description = "List of available zones in region"
-  value       = module.compute_instance.available_zones
-}
+#output "url" {
+#  description = "Cloud Run's URL"
+#  value       = data.google_cloud_run_service.service.status[0].url
+#}
+#
+#output "id" {
+#  description = "Cloud Run's ID"
+#  value       = data.google_cloud_run_service.service.id
+#}
 
 output "project_id" {
   description = "Project where compute instance was created"

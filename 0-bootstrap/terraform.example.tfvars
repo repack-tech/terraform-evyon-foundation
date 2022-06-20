@@ -29,7 +29,7 @@ default_region = "us-central1"
 // the provided folder instead of the root organization.
 // The variable value is the numeric folder ID
 // The folder must already exist.
-//parent_folder = "01234567890"
+parent_folder = "1064176753276" // fldr-BatteryCloud
 
 /* ----------------------------------------
     Specific to jenkins_bootstrap module

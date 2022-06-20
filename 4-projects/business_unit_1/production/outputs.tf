@@ -24,67 +24,67 @@ output "base_shared_vpc_project_sa" {
   value       = module.env.base_shared_vpc_project_sa
 }
 
-output "floating_project" {
-  description = "Project sample floating project."
-  value       = module.env.floating_project
-}
-
-output "peering_project" {
-  description = "Project sample peering project id."
-  value       = module.env.peering_project
-}
-
-output "peering_network" {
-  description = "Peer network peering resource."
-  value       = module.env.peering_network
-}
-
-output "restricted_shared_vpc_project" {
-  description = "Project sample restricted project id."
-  value       = module.env.restricted_shared_vpc_project
-}
-
-output "restricted_shared_vpc_project_number" {
-  description = "Project sample restricted project."
-  value       = module.env.restricted_shared_vpc_project_number
-}
+#output "floating_project" {
+#  description = "Project sample floating project."
+#  value       = module.env.floating_project
+#}
+#
+#output "peering_project" {
+#  description = "Project sample peering project id."
+#  value       = module.env.peering_project
+#}
+#
+#output "peering_network" {
+#  description = "Peer network peering resource."
+#  value       = module.env.peering_network
+#}
+#
+#output "restricted_shared_vpc_project" {
+#  description = "Project sample restricted project id."
+#  value       = module.env.restricted_shared_vpc_project
+#}
+#
+#output "restricted_shared_vpc_project_number" {
+#  description = "Project sample restricted project."
+#  value       = module.env.restricted_shared_vpc_project_number
+#}
 
 output "vpc_service_control_perimeter_name" {
   description = "VPC Service Control name."
   value       = var.perimeter_name
 }
 
-output "restricted_enabled_apis" {
-  description = "Activated APIs."
-  value       = module.env.restricted_enabled_apis
-}
+#output "restricted_enabled_apis" {
+#  description = "Activated APIs."
+#  value       = module.env.restricted_enabled_apis
+#}
 
 output "access_context_manager_policy_id" {
   description = "Access Context Manager Policy ID."
   value       = var.access_context_manager_policy_id
 }
 
-output "peering_complete" {
-  description = "Output to be used as a module dependency."
-  value       = module.env.peering_complete
-}
-
-output "env_secrets_project" {
-  description = "Project sample peering project id."
-  value       = module.env.env_secrets_project
-}
-
-output "keyring" {
-  description = "The name of the keyring."
-  value       = module.env.keyring
-}
-
-output "keys" {
-  description = "List of created key names."
-  value       = module.env.keys
-}
-
-output "bucket" {
-  description = "The created storage bucket"
-  value       = module.env.bucket
-}
+#output "peering_complete" {
+#  description = "Output to be used as a module dependency."
+#  value       = module.env.peering_complete
+#}
+#
+#output "env_secrets_project" {
+#  description = "Project sample peering project id."
+#  value       = module.env.env_secrets_project
+#}
+#
+#output "keyring" {
+#  description = "The name of the keyring."
+#  value       = module.env.keyring
+#}
+#
+#output "keys" {
+#  description = "List of created key names."
+#  value       = module.env.keys
+#}
+#
+#output "bucket" {
+#  description = "The created storage bucket"
+#  value       = module.env.bucket
+#}

@@ -15,23 +15,8 @@
  */
 
 terraform {
-  required_version = ">= 0.13"
-  required_providers {
-    google = {
-      source  = "hashicorp/google"
-      version = "~> 4.11"
-    }
-    google-beta = {
-      source  = "hashicorp/google-beta"
-      version = "~> 4.11"
-    }
-  }
-
-  provider_meta "google" {
-    module_name = "blueprints/terraform/terraform-example-foundation:transitivity/v2.3.1"
-  }
-
-  provider_meta "google-beta" {
-    module_name = "blueprints/terraform/terraform-example-foundation:transitivity/v2.3.1"
+  backend "gcs" {
+    bucket = "bkt-b-tfstate-e395"
+    prefix = "terraform/bootstrap/state"
   }
 }

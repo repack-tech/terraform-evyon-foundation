@@ -81,19 +81,13 @@ variable "cloudbuild_apply_filename" {
 variable "terraform_version" {
   description = "Default terraform version."
   type        = string
-  default     = "0.13.7"
+  default     = "1.1.9"
 }
 
 variable "terraform_version_sha256sum" {
   description = "sha256sum for default terraform version."
   type        = string
-  default     = "4a52886e019b4fdad2439da5ff43388bbcc6cce9784fde32c53dcd0e28ca9957"
-}
-
-variable "terraform_validator_release" {
-  description = "Default terraform-validator release."
-  type        = string
-  default     = "v0.4.0"
+  default     = "9d2d8a89f5cc8bc1c06cb6f34ce76ec4b99184b07eb776f8b39183b513d7798a"
 }
 
 variable "folders_to_grant_browser_role" {

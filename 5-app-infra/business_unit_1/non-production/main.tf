@@ -21,14 +21,14 @@ data "google_active_folder" "env" {
   parent       = var.parent_folder != "" ? "folders/${var.parent_folder}" : "organizations/${var.org_id}"
 }
 
-module "base_shared_gce_instance" {
-  source         = "../../modules/env_base"
-  environment    = "non-production"
-  vpc_type       = "base"
-  num_instances  = 1
-  machine_type   = "f1-micro"
-  folder_id      = data.google_active_folder.env.name
-  business_code  = "bu1"
-  project_suffix = "sample-base"
-  region         = var.instance_region
+module "base_cloud_run_container" {
+  source             = "../../modules/env_base"
+  environment        = "non-production"
+  vpc_type           = "base"
+  folder_id          = data.google_active_folder.env.name
+  business_code      = "bycd"
+  project_suffix     = "database-mgmt"
+  region             = var.instance_region
+  secrets_project_id = "prj-d-secrets-ab01"
+  cr_sa_roles        = []
 }

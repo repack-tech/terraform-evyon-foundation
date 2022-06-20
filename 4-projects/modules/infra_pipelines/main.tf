@@ -43,7 +43,7 @@ data "google_project" "cloudbuild_project" {
 
 # Buckets for state and artifacts
 resource "random_id" "suffix" {
-  byte_length = 2
+  byte_length = 4
 }
 
 resource "google_storage_bucket" "pipeline_infra" {
@@ -155,7 +155,7 @@ resource "null_resource" "cloudbuild_terraform_builder" {
       gcloud builds submit ${path.module}/cloudbuild_builder/ \
       --project ${var.cloudbuild_project_id} \
       --config=${path.module}/cloudbuild_builder/cloudbuild.yaml \
-      --substitutions=_TERRAFORM_VERSION=${var.terraform_version},_TERRAFORM_VERSION_SHA256SUM=${var.terraform_version_sha256sum},_TERRAFORM_VALIDATOR_RELEASE=${var.terraform_validator_release},_REGION=${google_artifact_registry_repository.tf-image-repo.location},_REPOSITORY=${local.gar_name} \
+      --substitutions=_TERRAFORM_VERSION=${var.terraform_version},_TERRAFORM_VERSION_SHA256SUM=${var.terraform_version_sha256sum},_REGION=${google_artifact_registry_repository.tf-image-repo.location},_REPOSITORY=${local.gar_name} \
       --impersonate-service-account=${var.impersonate_service_account}
   EOT
   }

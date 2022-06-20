@@ -138,7 +138,7 @@ module "org_disable_sa_key_creation" {
   folder_id       = local.folder_id
   policy_for      = local.policy_for
   policy_type     = "boolean"
-  enforce         = "true"
+  enforce         = "false"
   constraint      = "constraints/iam.disableServiceAccountKeyCreation"
 }
 

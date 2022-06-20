@@ -23,7 +23,7 @@ data "google_project" "network_project" {
 }
 
 data "google_projects" "environment_projects" {
-  filter = "parent.id:${split("/", var.folder_id)[1]} name:*${var.project_suffix}* labels.application_name=${var.business_code}-sample-application labels.environment=${var.environment} lifecycleState=ACTIVE"
+  filter = "parent.id:${split("/", var.folder_id)[1]} name:*${var.project_suffix}* labels.application_name=${var.business_code}-${var.project_suffix} labels.environment=${var.environment} lifecycleState=ACTIVE"
 }
 
 data "google_project" "env_project" {
@@ -39,4 +39,10 @@ data "google_compute_subnetwork" "subnetwork" {
   name    = "sb-${local.environment_code}-shared-${var.vpc_type}-${var.region}"
   region  = var.region
   project = data.google_project.network_project.project_id
+}
+
+data "google_cloud_run_service" "service" {
+  location = var.region
+  name     = var.project_suffix
+  project  = data.google_project.env_project.project_id
 }
