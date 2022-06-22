@@ -73,3 +73,9 @@ variable "app_infra_pipeline_cloudbuild_sa" {
   description = "Cloud Build SA used for deploying infrastructure"
   type        = string
 }
+
+variable "environment_admin_groups" {
+  description = "List of Google groups to grant Owner permissions for the whole environment folder."
+  type        = list(string)
+  default     = []
+}

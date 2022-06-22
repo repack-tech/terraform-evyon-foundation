@@ -143,3 +143,9 @@ variable "folders_to_grant_browser_role" {
   type        = list(string)
   default     = []
 }
+
+variable "environment_admin_groups" {
+  description = "List of Google groups to grant Owner permissions for the whole environment folder."
+  type        = list(string)
+  default     = []
+}

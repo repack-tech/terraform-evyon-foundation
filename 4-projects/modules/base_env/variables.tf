@@ -161,3 +161,9 @@ variable "gcs_bucket_prefix" {
   type        = string
   default     = "cmek-encrypted-bucket"
 }
+
+variable "environment_admin_groups" {
+  description = "List of Google groups to grant Owner permissions for the whole environment folder."
+  type        = list(string)
+  default     = []
+}

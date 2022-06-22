@@ -47,7 +47,6 @@ module "base_shared_vpc_project" {
     "datastore.googleapis.com",
     "iam.googleapis.com",
     "run.googleapis.com",
-    "run.googleapis.com",
   ]
   folders_to_grant_browser_role = [
     var.parent_folder != "" ? "folders/${var.parent_folder}" : "organizations/${var.org_id}"
@@ -60,5 +59,6 @@ module "base_shared_vpc_project" {
   primary_contact   = "example@example.com"
   secondary_contact = "example2@example.com"
   business_code     = var.business_code
+  environment_admin_groups = var.environment_admin_groups
 }
 

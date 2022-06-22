@@ -21,6 +21,7 @@ module "env" {
   env                              = "production"
   business_code                    = "bu1"
   business_unit                    = "business_unit_1"
+  terraform_service_account        = var.terraform_service_account
   org_id                           = var.org_id
   billing_account                  = var.billing_account
   access_context_manager_policy_id = var.access_context_manager_policy_id
@@ -31,4 +32,5 @@ module "env" {
   folder_prefix                    = var.folder_prefix
   enable_hub_and_spoke             = var.enable_hub_and_spoke
   app_infra_pipeline_cloudbuild_sa = var.app_infra_pipeline_cloudbuild_sa
+  environment_admin_groups         = var.environment_admin_groups
 }

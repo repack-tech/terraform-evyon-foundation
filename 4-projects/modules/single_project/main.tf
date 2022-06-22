@@ -89,6 +89,13 @@ resource "google_service_account_iam_member" "cloudbuild_terraform_sa_impersonat
   member             = "serviceAccount:${var.cloudbuild_sa}"
 }
 
+resource "google_folder_iam_member" "environment_admin_groups" {
+  for_each = toset(var.environment_admin_groups)
+  folder   = var.folder_id
+  role     = "roles/owner"
+  member   = "group:${each.value}"
+}
+
 module "gh_oidc" {
   source      = "terraform-google-modules/github-actions-runners/google//modules/gh-oidc"
   project_id  = module.project.project_id
