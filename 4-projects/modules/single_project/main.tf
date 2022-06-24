@@ -102,7 +102,7 @@ module "gh_oidc" {
   pool_id     = "${var.project_prefix}-${var.business_code}-${local.env_code}-${var.project_suffix}"
   provider_id = "${var.project_suffix}-gh-provider"
   sa_mapping  = {
-    ( module.project.service_account_email ) = {
+    "prj-sa" = {
       sa_name   = module.project.service_account_name
       attribute = "attribute.repository/user/repo"
     }

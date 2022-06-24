@@ -28,12 +28,10 @@ module "base_shared_vpc_project" {
   enable_hub_and_spoke     = var.enable_hub_and_spoke
   sa_roles                 = [
     "roles/artifactregistry.writer",
-    "roles/containerregistry.ServiceAgent",
     "roles/editor",
     "roles/iam.serviceAccountAdmin",
     "roles/iam.serviceAccountUser",
     "roles/iam.workloadIdentityPoolAdmin",
-    "roles/iam.workloadIdentityUser",
     "roles/resourcemanager.projectIamAdmin",
     "roles/run.admin",
     "roles/run.serviceAgent"
