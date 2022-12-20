@@ -44,7 +44,7 @@ resource "google_project_iam_member" "app_infra_pipeline_sa_roles" {
 # https://github.com/GoogleCloudPlatform/terraform-google-cloud-run
 module "cloud_run" {
   source  = "GoogleCloudPlatform/cloud-run/google"
-  version = "~> 0.3.0"
+  version = "~> 0.4.0"
 
   # Required variables
   service_name          = var.project_suffix
